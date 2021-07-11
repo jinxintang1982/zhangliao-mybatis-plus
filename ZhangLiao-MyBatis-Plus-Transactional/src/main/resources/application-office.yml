@@ -3,20 +3,15 @@ server:
 
 spring:
   application:
-    name: zhangliao_mybatis_plus_crud
-
-  profiles:
-      active: office
+    name: zhangliao_mybatis_plus_transactional
 
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: org.h2.Driver
-    # h2 内存数据库 内存模式连接配置 库名: myDb
-    url: jdbc:h2:~/test:myDb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;USER=sa
-    #url: jdbc:h2:mem:myDb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;USER=sa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.131.110.70:3306/cst_base_ddd?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1234567890///
 
-    schema: classpath:sql/init.sql
-    data: classpath:sql/data.sql
     hikari:
       connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
       minimum-idle: 10
@@ -41,7 +36,6 @@ mybatis-plus:
   configuration:
     cache-enabled: false
     local-cache-scope: statement
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     banner: false
 

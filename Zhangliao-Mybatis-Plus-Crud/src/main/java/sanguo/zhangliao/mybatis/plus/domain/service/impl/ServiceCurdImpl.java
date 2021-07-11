@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sanguo.zhangliao.mybatis.plus.domain.db.entity.TStation;
 import sanguo.zhangliao.mybatis.plus.domain.db.service.ITStationService;
 import sanguo.zhangliao.mybatis.plus.domain.service.IServiceCurd;
