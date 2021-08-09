@@ -10,4 +10,8 @@ public interface IWrapperService {
     void selectAndUpdate();
     void select();
     void createWrongTrans();
+    void selectTestTransStart();
+    void updateSleep(Long id,String no,Long sleepBefore,Long sleepAfter);
+    void updateThrowException(Long id,String no);
+    void updateBySqlSleep(Long sleepSecound);
 }

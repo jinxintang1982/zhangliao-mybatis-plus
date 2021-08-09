@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-06-17
  */
 public interface ITStationService extends IService<TStation> {
-
+    void updateBySql(String shelfNo);
 }

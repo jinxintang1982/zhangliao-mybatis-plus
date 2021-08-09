@@ -12,7 +12,8 @@
         <module>Zhangliao-Mybatis-Plus-Crud</module>
         <module>Zhangliao-Mybatis-Plus-Wrapper</module>
         <module>ZhangLiao-MyBatis-Plus-Transactional</module>
-        <module>Zhangliao-Myabatis-Plus-Pagination</module>
+        <module>Zhangliao-MyBatis-Plus-Pagination</module>
+        <module>Zhangliao-Mybatis-Plus-TableField</module>
     </modules>
 
     <packaging>pom</packaging>
