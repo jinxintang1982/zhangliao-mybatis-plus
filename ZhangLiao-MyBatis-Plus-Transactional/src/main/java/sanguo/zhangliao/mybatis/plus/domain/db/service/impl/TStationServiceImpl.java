@@ -42,4 +42,13 @@ public class TStationServiceImpl extends ServiceImpl<TStationMapper, TStation> i
         return update(updateWrapper);
     }
 
+    @Override
+    public boolean offCell(String cellNo, Long cellId) {
+
+        LambdaUpdateWrapper<TStation> updateWrapper = Wrappers.lambdaUpdate();
+        updateWrapper.eq(TStation::getId, cellId)
+                .set(TStation::getReceiveTime, "");
+        return update(updateWrapper);
+    }
+
 }

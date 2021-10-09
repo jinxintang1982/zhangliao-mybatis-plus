@@ -56,4 +56,12 @@ public class DevTest {
         Thread.sleep(5000L);
         System.out.println(itStationService.getById(1L));
     }
+
+    @Test
+    public void deadLock() throws InterruptedException{
+        new Thread(() -> wrapperService.checkValid(1L,"1")).start();
+        new Thread(() -> wrapperService.cellDownFinish(2L,"2")).start();
+        Thread.sleep(7000L);
+        log.info("deadLock end ");
+    }
 }

@@ -50,4 +50,5 @@ public class TFrame implements Serializable {
     private Long orderId;
     private String cellNo;
     private Integer status;
+    private String receiveTime;
 }

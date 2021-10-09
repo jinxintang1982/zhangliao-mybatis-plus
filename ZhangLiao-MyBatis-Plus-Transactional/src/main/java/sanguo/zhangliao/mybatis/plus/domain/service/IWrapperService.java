@@ -15,4 +15,5 @@ public interface IWrapperService {
     void updateThrowException(Long id,String no);
     void updateBySqlSleep(Long sleepSecound);
     void checkValid( Long orderId,String cellNo);
+    void cellDownFinish(Long cellId,String cellNo);
 }

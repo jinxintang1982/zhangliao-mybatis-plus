@@ -135,9 +135,31 @@ public class WrapperServiceImpl implements IWrapperService {
     }
 
     @Override
-    public void checkValid( Long orderId,String cellNo) {
-        log.info("arrange clearArrangeTaskIdByNo cellNo = {},orderId = {}",cellNo,orderId);
-        itStationService.clearArrangeTaskIdByNo(cellNo);
-        itFrameService.updateStatusByOrderCellId(orderId,cellNo,7);
+    public void checkValid(Long orderId, String cellNo) {
+        try {
+            Thread.sleep(1000);
+            log.info("begin updateStatusByOrderCellId");
+            itFrameService.updateStatusByOrderCellId(orderId, cellNo, 7);
+            Thread.sleep(1000);
+            log.info("end updateStatusByOrderCellId");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    @Transactional
+    public void cellDownFinish(Long cellId, String cellNo) {
+        try {
+            log.info("begin updateById");
+            itFrameService.updateById(new TFrame().setId(cellId).setReceiveTime("1123"));
+            log.info("end updateById");
+            Thread.sleep(2000);
+            log.info("begin updateStatusDown");
+            itFrameService.updateStatusDown(cellNo);
+            log.info("end updateStatusDown");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
