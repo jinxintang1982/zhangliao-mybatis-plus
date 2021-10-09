@@ -1,7 +1,5 @@
 package sanguo.zhangliao.mybatis.plus.domain.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +24,7 @@ public class WrapperServiceImpl implements IWrapperService {
     ITStationService itStationService;
     Long stationId = 1L;
     @Autowired
-    ITFrameService frameService;
+    ITFrameService itFrameService;
 
     @Override
     @Transactional
@@ -81,7 +79,7 @@ public class WrapperServiceImpl implements IWrapperService {
     @Transactional
     public void selectTestTransStart() {
         try {
-            frameService.updateById(new TFrame().setId(1L).setName("aa"));
+            itFrameService.updateById(new TFrame().setId(1L).setName("aa"));
             TStation station;
             log.info("进入Select函数，已更新完Frame表");
             Thread.sleep(3000L);
@@ -136,5 +134,10 @@ public class WrapperServiceImpl implements IWrapperService {
         }
     }
 
-
+    @Override
+    public void checkValid( Long orderId,String cellNo) {
+        log.info("arrange clearArrangeTaskIdByNo cellNo = {},orderId = {}",cellNo,orderId);
+        itStationService.clearArrangeTaskIdByNo(cellNo);
+        itFrameService.updateStatusByOrderCellId(orderId,cellNo,7);
+    }
 }

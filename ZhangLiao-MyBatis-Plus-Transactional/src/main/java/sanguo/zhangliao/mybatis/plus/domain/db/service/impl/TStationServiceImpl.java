@@ -34,4 +34,12 @@ public class TStationServiceImpl extends ServiceImpl<TStationMapper, TStation> i
         }
     }
 
+    @Override
+    public boolean clearArrangeTaskIdByNo(String cellNo) {
+        LambdaUpdateWrapper<TStation> updateWrapper = Wrappers.lambdaUpdate();
+        updateWrapper.eq(TStation::getNo, cellNo)
+                .set(TStation::getArrangeTaskId, -1);
+        return update(updateWrapper);
+    }
+
 }

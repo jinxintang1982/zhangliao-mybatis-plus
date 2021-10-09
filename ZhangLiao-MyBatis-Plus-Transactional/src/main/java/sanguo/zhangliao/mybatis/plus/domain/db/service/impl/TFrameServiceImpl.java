@@ -1,5 +1,7 @@
 package sanguo.zhangliao.mybatis.plus.domain.db.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import sanguo.zhangliao.mybatis.plus.domain.db.entity.TFrame;
@@ -20,4 +22,12 @@ import sanguo.zhangliao.mybatis.plus.domain.db.service.ITStationService;
 @Service
 public class TFrameServiceImpl extends ServiceImpl<TFrameMapper, TFrame> implements ITFrameService {
 
+    @Override
+    public boolean updateStatusByOrderCellId(Long orderId, String cellNo, int status) {
+        LambdaUpdateWrapper<TFrame> updateWrapper = Wrappers.lambdaUpdate();
+        updateWrapper.eq(TFrame::getOrderId,orderId)
+                .eq(TFrame::getCellNo,cellNo)
+                .set(TFrame::getStatus,status);
+        return update(updateWrapper);
+    }
 }

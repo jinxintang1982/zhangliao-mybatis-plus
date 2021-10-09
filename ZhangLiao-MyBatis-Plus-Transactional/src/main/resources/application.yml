@@ -6,8 +6,8 @@ spring:
     name: zhangliao_mybatis_plus_Transcational
 
   profiles:
-    #active: office
-    active: h2
+    active: office
+    #active: h2
 
   datasource:
     hikari:
@@ -24,7 +24,7 @@ mybatis-plus:
   configuration:
     cache-enabled: false
     local-cache-scope: statement
-    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     banner: false
 

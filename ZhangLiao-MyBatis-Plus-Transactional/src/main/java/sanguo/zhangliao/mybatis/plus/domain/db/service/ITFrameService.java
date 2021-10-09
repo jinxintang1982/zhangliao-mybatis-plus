@@ -13,5 +13,5 @@ import sanguo.zhangliao.mybatis.plus.domain.db.entity.TStation;
  * @since 2021-06-17
  */
 public interface ITFrameService extends IService<TFrame> {
-
+    boolean updateStatusByOrderCellId(Long orderId, String cellNo, int status);
 }

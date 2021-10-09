@@ -62,6 +62,9 @@ public class TStation implements Serializable {
      */
     private String frameNo;
 
+    private String cellNo;
+
+    private Long arrangeTaskId;
     /**
      * 记录插入时间
      */
