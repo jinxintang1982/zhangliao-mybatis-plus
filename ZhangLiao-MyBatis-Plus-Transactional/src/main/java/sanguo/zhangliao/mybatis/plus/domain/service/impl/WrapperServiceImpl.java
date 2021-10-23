@@ -55,10 +55,10 @@ public class WrapperServiceImpl implements IWrapperService {
             log.info("线程-2-更新前查询 station = {}", station.getNo());
             Thread.sleep(2000L);
             station = itStationService.getById(stationId);
-            log.info("线程-2-在线程1更新后，提交事务前查询  station = {}", station.getNo());
-            Thread.sleep(2000L);
+            log.info("线程-2-在线程1更新后，提交事务前查询 station = {}", station.getNo());
+            Thread.sleep(4000L);
             station = itStationService.getById(stationId);
-            log.info("线程-2-在线程1，提交事务后查询 station = {}", station.getNo());
+            log.info("线程-2-在线程1更新后，提交事务后查询 station = {}", station.getNo());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -88,6 +88,19 @@ public class WrapperServiceImpl implements IWrapperService {
             log.info(station.toString());
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public void selectToRow(){
+        try {
+            itStationService.getById(1);
+            //log.info(itStationService.getById(2).toString());
+            Thread.sleep(2000L);
+            log.info(itStationService.getById(2).toString());
+        }catch (Exception e){
+
         }
     }
 
@@ -135,13 +148,14 @@ public class WrapperServiceImpl implements IWrapperService {
     }
 
     @Override
-    public void checkValid(Long orderId, String cellNo) {
+    public void thread1Exc( String cellNo) {
         try {
-            Thread.sleep(1000);
-            log.info("begin updateStatusByOrderCellId");
-            itFrameService.updateStatusByOrderCellId(orderId, cellNo, 7);
-            Thread.sleep(1000);
-            log.info("end updateStatusByOrderCellId");
+            Thread.sleep(200);
+            log.info("begin updateStatusByCellNo~~~1");
+            //第二个执行
+            itFrameService.updateStatusByCellNo(cellNo, 7);
+            Thread.sleep(500);
+            log.info("end updateStatusByCellNo~~~1");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -149,15 +163,19 @@ public class WrapperServiceImpl implements IWrapperService {
 
     @Override
     @Transactional
-    public void cellDownFinish(Long cellId, String cellNo) {
+    public void thread2Exc(Long id, String cellNo) {
         try {
-            log.info("begin updateById");
-            itFrameService.updateById(new TFrame().setId(cellId).setReceiveTime("1123"));
-            log.info("end updateById");
-            Thread.sleep(2000);
-            log.info("begin updateStatusDown");
-            itFrameService.updateStatusDown(cellNo);
-            log.info("end updateStatusDown");
+            log.info("begin updateById ~~~2");
+            //第一个执行
+            itFrameService.updateById(new TFrame().setId(id).setName("1123"));
+            log.info("end updateById ~~~2");
+
+            Thread.sleep(300);
+
+            log.info("begin updateStatusByCellNo~~~~2");
+            //第三个执行
+            itFrameService.updateStatusByCellNo2(cellNo);
+            log.info("end updateStatusByCellNo~~~~~~2");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

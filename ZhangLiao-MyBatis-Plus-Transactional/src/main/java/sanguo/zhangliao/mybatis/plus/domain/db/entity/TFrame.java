@@ -47,8 +47,4 @@ public class TFrame implements Serializable {
      */
     private LocalDateTime updateTime;
 
-    private Long orderId;
-    private String cellNo;
-    private Integer status;
-    private String receiveTime;
 }

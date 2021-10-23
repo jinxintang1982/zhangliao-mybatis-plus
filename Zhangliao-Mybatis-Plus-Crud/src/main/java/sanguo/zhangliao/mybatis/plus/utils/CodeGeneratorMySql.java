@@ -24,7 +24,6 @@ import java.util.Scanner;
  * @author jobob
  * @since 2018-09-12
  */
-@Slf4j
 public class CodeGeneratorMySql {
 
     /**
@@ -63,7 +62,6 @@ public class CodeGeneratorMySql {
      * RUN THIS
      */
     public static void main(String[] args) {
-        log.info("开始");
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
 
@@ -144,7 +142,7 @@ public class CodeGeneratorMySql {
         // 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
-        log.info("完成");
+
     }
 
     /**

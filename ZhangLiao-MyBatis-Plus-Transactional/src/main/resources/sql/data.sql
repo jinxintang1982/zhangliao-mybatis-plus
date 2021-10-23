@@ -15,6 +15,6 @@ INSERT INTO `t_station` VALUES (13, 'CPZZ', '成品装载', 0, -1, 0, '送货位
 INSERT INTO `t_station` VALUES (14, 'CP', '成品', 1, 138, 2, '送货位', 'ws01-06', '2021-03-04 07:34:11', '2021-03-04 08:49:18');
 COMMIT;
 BEGIN;
-INSERT INTO `t_frame` VALUES (1, '01', '1#','2021-01-28 07:38:19', '2021-06-21 22:25:15');
-INSERT INTO `t_frame` VALUES (2, '02', '2#','2021-01-28 08:04:47', '2021-02-03 11:44:03');
+INSERT INTO `t_frame` VALUES (1, '1', '1#','2021-01-28 07:38:19', '2021-06-21 22:25:15');
+INSERT INTO `t_frame` VALUES (2, '2', '2#','2021-01-28 08:04:47', '2021-02-03 11:44:03');
 COMMIT;

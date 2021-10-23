@@ -69,11 +69,4 @@ public class TStation implements Serializable {
      * 记录更新时间
      */
     private LocalDateTime updateTime;
-
-
-    private String cellNo;
-
-    private Long arrangeTaskId;
-
-    private String receiveTime;
 }

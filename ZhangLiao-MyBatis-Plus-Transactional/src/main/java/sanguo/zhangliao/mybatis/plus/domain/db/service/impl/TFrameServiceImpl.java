@@ -23,18 +23,18 @@ import sanguo.zhangliao.mybatis.plus.domain.db.service.ITStationService;
 public class TFrameServiceImpl extends ServiceImpl<TFrameMapper, TFrame> implements ITFrameService {
 
     @Override
-    public boolean updateStatusByOrderCellId(Long orderId, String cellNo, int status) {
+    public boolean updateStatusByCellNo(String cellNo, int status) {
         LambdaUpdateWrapper<TFrame> updateWrapper = Wrappers.lambdaUpdate();
-        updateWrapper.eq(TFrame::getCellNo,cellNo)
-                .set(TFrame::getStatus,status);
+        updateWrapper.eq(TFrame::getNo,cellNo)
+                .set(TFrame::getName,status);
         return update(updateWrapper);
     }
 
     @Override
-    public boolean updateStatusDown(String cellNo) {
+    public boolean updateStatusByCellNo2(String cellNo) {
         LambdaUpdateWrapper<TFrame> updateWrapper = Wrappers.lambdaUpdate();
-        updateWrapper.eq(TFrame::getCellNo, cellNo)
-                .set(TFrame::getStatus, 2);
+        updateWrapper.eq(TFrame::getNo, cellNo)
+                .set(TFrame::getName, 2);
         return update(updateWrapper);
     }
 }
