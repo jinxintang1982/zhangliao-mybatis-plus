@@ -10,8 +10,8 @@ MyBatis-Plus (opens new window)（简称 MP）是一个 MyBatis (opens new windo
 ### 二、函数列表
 
 
-##### ServiceImpl中实现的方法：
-
+##### ServiceImpl中实现的方法：g
+~
 | 操作         | 函数                                                         |
 | ------------ | ------------------------------------------------------------ |
 | save         | //保存一个实体对象<br>1.boolean save(T entity);<br/>//批量保存一组实体对象<br>2.boolean saveBatch(Collection<T> entityList)<br/>//批量保存一组实体对象中的batchSize个3.boolean saveBatch(collection<T> entityList,int batchSize); |
