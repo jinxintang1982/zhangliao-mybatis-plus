@@ -11,8 +11,6 @@ CREATE TABLE `t_station` (
   `frame_no` varchar(40)  NULL DEFAULT '' COMMENT 'NO',
   `create_time` datetime NOT NULL  COMMENT '记录插入时间',
   `update_time`  datetime NOT NULL  COMMENT '记录更新时间',
-  -- `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录插入时间',
-  -- `update_time`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
   `version` int(10) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ;

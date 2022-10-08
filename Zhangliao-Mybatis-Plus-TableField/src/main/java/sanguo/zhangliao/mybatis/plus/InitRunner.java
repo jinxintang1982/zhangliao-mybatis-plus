@@ -21,18 +21,6 @@ public class InitRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        itStationService.saveOrUpdate(new TStation().setId(100L).setNo("001"));
 
-//        LambdaUpdateWrapper<TStation> updateWrapper = Wrappers.lambdaUpdate();
-//        updateWrapper.eq(TStation::getId,100L)
-//                .set(TStation::getNo,"002");
-//        itStationService.update(updateWrapper);
-
-        //itStationService.updateById(new TStation().setNo("002"));
-
-        TStation tStation = itStationService.getById(100L);
-        itStationService.updateById(tStation.setNo("002").setVersion(4));
-
-        System.out.println(itStationService.getById(100L));
     }
 }
