@@ -6,7 +6,7 @@ spring:
     name: zhangliao_mybatis_plus_Transcational
 
   profiles:
-    active: docker
+    active: local
     #active: h2
 
   datasource:

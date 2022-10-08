@@ -7,5 +7,5 @@ package sanguo.zhangliao.mybatis.plus.domain.service;
  **/
 
 public interface ITransService {
-    void testRR();
+    void defaultTrans();
 }

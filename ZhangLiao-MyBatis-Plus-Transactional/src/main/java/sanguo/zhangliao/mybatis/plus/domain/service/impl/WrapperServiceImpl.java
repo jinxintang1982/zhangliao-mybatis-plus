@@ -35,8 +35,8 @@ public class WrapperServiceImpl implements IWrapperService {
             TStation station = itStationService.getById(stationId);
             log.info("线程-1-更新前查询 station = {}", station.getNo());
             Thread.sleep(1000L);
-            itStationService.updateById(new TStation().setNo("11111").setId(stationId));
-            log.info("线程-1-更新完成");
+            itStationService.updateById(new TStation().setNo("2#").setId(stationId));
+            log.info("线程-1-更新完成 2#");
             station = itStationService.getById(stationId);
             log.info("线程-1-更新后查询 station = {}", station.getNo());
             Thread.sleep(4000L);

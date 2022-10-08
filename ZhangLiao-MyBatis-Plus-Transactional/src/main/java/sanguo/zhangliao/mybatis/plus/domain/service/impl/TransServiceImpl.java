@@ -28,7 +28,9 @@ public class TransServiceImpl implements ITransService {
     @Autowired
     ITStationService itStationService;
 
-    public void testRR()  {
+    public void defaultTrans()  {
+        //Mysql默认的事务隔离级别为可重复读（read repeat）
+        //H2的事务隔离级别为读已提交(read committed)
         new Thread(() -> wrapperService.selectAndUpdate()).start();
         new Thread(() -> wrapperService.select()).start();
         try {
