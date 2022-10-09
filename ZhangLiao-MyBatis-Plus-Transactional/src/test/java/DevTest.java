@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import sanguo.zhangliao.mybatis.plus.MegviiApplication;
-import sanguo.zhangliao.mybatis.plus.domain.service.ITransService;
+import sanguo.zhangliao.mybatis.plus.domain.service.IInvalidService;
+import sanguo.zhangliao.mybatis.plus.domain.service.IIsolationService;
 import sanguo.zhangliao.mybatis.plus.domain.service.IWrapperService;
 
 
@@ -19,15 +20,15 @@ import sanguo.zhangliao.mybatis.plus.domain.service.IWrapperService;
 @Slf4j
 public class DevTest {
     @Autowired
-    ITransService transService;
+    IIsolationService transService;
 
     @Autowired
-    IWrapperService wrapperService;
-
+    IInvalidService iInvalidService;
 
     @Test
     public void test()  {
-        transService.testRR();
+        //iInvalidService.createWrongTrans();
+        iInvalidService.createRightTrans();
     }
 
 }

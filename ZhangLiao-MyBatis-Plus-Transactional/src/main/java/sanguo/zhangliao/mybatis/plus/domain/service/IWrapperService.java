@@ -9,12 +9,4 @@ package sanguo.zhangliao.mybatis.plus.domain.service;
 public interface IWrapperService {
     void selectAndUpdate();
     void select();
-    void createWrongTrans();
-    void selectTestTransStart();
-    void updateSleep(Long id,String no,Long sleepBefore,Long sleepAfter);
-    void updateThrowException(Long id,String no);
-    void updateBySqlSleep(Long sleepSecound);
-    void thread1Exc(String cellNo);
-    void thread2Exc(Long cellId, String cellNo);
-    void selectToRow();
 }

@@ -6,6 +6,6 @@ package sanguo.zhangliao.mybatis.plus.domain.service;
  * @create: 2021-10-23 11:05
  **/
 
-public interface ITransService {
-    void defaultTrans();
+public interface IIsolationService {
+    void defaultIsolation();
 }
