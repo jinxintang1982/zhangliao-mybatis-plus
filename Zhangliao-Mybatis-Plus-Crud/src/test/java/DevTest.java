@@ -6,6 +6,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import sanguo.zhangliao.mybatis.plus.MegviiApplication;
 import sanguo.zhangliao.mybatis.plus.domain.db.entity.TStation;
 import sanguo.zhangliao.mybatis.plus.domain.db.service.ITStationService;
+import sanguo.zhangliao.mybatis.plus.domain.service.IMapperCurd;
 import sanguo.zhangliao.mybatis.plus.domain.service.IServiceCurd;
 
 
@@ -22,6 +23,9 @@ public class DevTest {
     @Autowired
     ITStationService itStationService;
 
+    @Autowired
+    IMapperCurd mapperCurd;
+
     @Test
     public void getObjTest() {
         System.out.println(iServiceCurd.getObjDemo());
@@ -30,6 +34,11 @@ public class DevTest {
     @Test
     public void getOneTest(){
         System.out.println(iServiceCurd.getOneDemo());
+    }
+
+    @Test
+    public void testMapper(){
+        mapperCurd.apply();
     }
 
     @Test

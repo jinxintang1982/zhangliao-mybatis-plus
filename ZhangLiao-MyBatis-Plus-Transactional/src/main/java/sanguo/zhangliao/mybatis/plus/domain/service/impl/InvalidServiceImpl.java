@@ -26,7 +26,6 @@ public class InvalidServiceImpl implements IInvalidService {
         throw new RuntimeException("roll back");
     }
 
-
     @Override
     public void createWrongTrans() {
         subTransMethod();
